@@ -1,0 +1,11 @@
+explore-client/*
+*.metadata
+*.settings
+*.project
+*.classpath
+*.vs
+*.sln
+*bin
+*obj
+*.csproj
+*.db

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>TP - Flex</title>
+</head>
+<body>
+<main>
+    <h1>FlexBox</h1>
+    <p> Por Pablo Rechimon e Ignacio Garcia</p>
+    <a href="https://jsbin.com/davojim/2/edit?css,output">Link a JSBin </a>
+    
+    <div class="box">
+        <h3><strong>Background:</strong></h3>
+        <article>
+            <p>
+                El Módulo de FlexBox, fue diseñado como un modelo unidimensional de layout, y como un método que pueda ayudar 
+                a distribuir el espacio entre los elementos de un contenedor y mejorar las capacidades de alineación.
+                Cuando describimos a flexbox como unidimensional destacamos el hecho que flexbox maneja el layout en una sola dimensión a la vez (ya sea como fila o como columna). 
+                Esto contrasta con el modelo bidimensional del "Grid Layout de CSS", el cual controla columnas y filas a la vez.
+            </p>
+        </article>
+    </div>
+
+    
+    <div class="box">
+        <h3><strong>Contenedores e Items:</strong></h3>
+        <article>
+            <p>
+                El uso de flex conlleva a tener un Contenedor "flexible", al cual se le debe asignar "display: flex", los hijos directos de este contenedorseran los
+                Items "flexibles", con solo hacer esto ya podemos observar el comoprtamiento por defecto, pero nosotros podemos sobreescribir dichos comportamientos
+                para ajustarlos a nuestras necesidades, todo esto a travez de las propiedades que tendra el Contenedor Flexible y los Items Flexible.
+            </p>
+
+            <img src="https://css-tricks.com/wp-content/uploads/2018/11/00-basic-terminology.svg"/>
+        </article>
+    </div>
+    
+    <div class="box">
+        <h3><strong>Ejes:</strong></h3>
+        <article>
+            <p>
+                Flex define un eje principal que es llamado "flex-direction" y otro que sera ortogonal a la dirección de este que es conocido
+                como el eje cruzado. En otras palabras, flex-direction mostrará la dirección en la cual el vector irá incorporando cada nuevo
+                item en el contenedor. Existen  cuatro posibles valores para establecer la dirección, los cuales son:
+            </p>
+        </article>
+    </div>
+
+    <div class="box">
+    <h3><strong>Caracteristicas:</strong></h3>
+    <ol>
+        <li>
+            <h4>Del Contenedor de Items</h4>
+            <img src="https://css-tricks.com/wp-content/uploads/2018/10/01-container.svg" alt="Repesentación visual del contenedor de items">
+            <ul>
+                <li>
+                    <article>
+                        <span>
+                        display flex:
+                        </span> 
+                    Convierte a un elemento en un Contenedor Flexible.
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <span>flex-direction:</span> Indica la direccion en la que se acomodaran los Items, por defecto estaran en una sola fila.
+                        <img src="https://css-tricks.com/wp-content/uploads/2018/10/flex-direction.svg" alt="Representación visual de Flex-Direction">
+                        <pre>
+    .container {
+        flex-direction: row | row-reverse | 
+                        column | column-reverse;
+    }
+                        </pre>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <span>flex-wrap:</span> Por defecto los Items se ajustan a una sola linea, con esta propiedad le podemos decir que de no entrar se utilice otra. 
+                    
+                        <img src="https://css-tricks.com/wp-content/uploads/2018/10/flex-wrap.svg" alt="Representación visual de Flex-Wrap">
+                        <pre>
+    .container {
+        flex-wrap: nowrap | wrap | wrap-reverse;
+    }
+                        </pre>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                    <span>flex-flow:</span> Es la abreviación de las propiedades Flex-Direction y Flex-Wrap que en conjunto definen la flexibilidad
+                    del contenedor y sus ejes. El primer valor del atributo indica la dirección y el segundo el wrap.
+                        <pre>
+    .container {
+        flex-flow: column wrap;
+    }
+                        </pre>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <span>justify-content:</span> Define como se distribuira el espacio libre del contenedor en el eje principal, por defecto este espacio va al final
+                        <img src="https://css-tricks.com/wp-content/uploads/2018/10/justify-content.svg" alt="Representación visual de Justify-content">
+                        <pre>
+    .container {
+        justify-content: flex-start | flex-end | 
+                        center | space-between | 
+                        space-around | 
+                        space-evenly | 
+                        start | end | 
+                        left | right;
+    }
+                        </pre>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <span>align-items:</span> Define para todos los items como se alineara con respecto al eje secundario, por defecto toma la misma medida que tiene el contenedor
+                        <img src="https://css-tricks.com/wp-content/uploads/2018/10/align-items.svg" alt="Representación visual de Align-items">    
+                        <pre>
+    .container {
+        align-items: stretch | flex-start | 
+                    flex-end | center | 
+                    baseline | 
+                    start | end;
+    }
+                        </pre>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <span>align-content:</span> Define como distribuira el espacio libre del contenedor en el eje secundario, esto solo tiene efecto cuando se tiene multilineas
+                        <img src="https://css-tricks.com/wp-content/uploads/2018/10/align-content.svg" alt="Representación visual de Align-contents">    
+                        <pre>
+    .container {
+        align-content: flex-start | flex-end | 
+                       center | space-between | 
+                       space-around | 
+                       space-evenly | 
+                       stretch | start | 
+                       end | baseline | 
+    }
+                        </pre>
+                    </article>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h4>Del Item</h4>
+            <img src="https://css-tricks.com/wp-content/uploads/2018/10/02-items.svg" alt="Representación visual de los items dentro del container">
+            <ul>
+                <li>
+                    <article>
+                        <span>order:</span> Define en que posicion del contenedor se pondra el elemento, por defecto se respeta el orden de entrada
+                        <img src="https://css-tricks.com/wp-content/uploads/2018/10/order.svg" alt="Representación visual del orden de los items">    
+                        <pre>
+    .item {
+        order: 5; /* default 0 */
+    }
+                        </pre>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <span>flex-grow y flex-shrink:</span> Flex Grow define la capacidad de crecer(en el eje principal) a la hora de distribuir el espacio libre del contenedor, mientras mas alto mas espacio restante tomara. 
+                        Flex Shrink define la capacidad de achicarse(en el eje principal)
+                        <img src="https://css-tricks.com/wp-content/uploads/2018/10/flex-grow.svg" alt="Representación visual de flex-grow y flex-shrink">    
+                        <pre>
+    .item {
+        flex-grow: 4; /* default 0 */
+    }
+                        </pre>
+                        <pre>
+    .item {
+        flex-shrink: 3; /* default 1 */
+    }
+                        </pre>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <span>flex-basis:</span> Define el tamaño por defecto del elemento(en el eje principal) antes de que el espacio libre sea distribuido
+                    <pre>
+    .item {
+        flex-basis:  | auto; /* default auto */
+    }
+                    </pre>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <span>flex:</span> Es la abreviacion de las propiedades Flex-Grow, Flex-Shrink y Flex-Basis
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <span>align-self:</span> Define como se alineara el Item con respecto al eje secundario
+                        <img src="https://css-tricks.com/wp-content/uploads/2018/10/align-self.svg" alt="Representación visual de Align-self">    
+                        <pre>
+    .item {
+        align-self: auto | lex-start | 
+                    flex-end | center |
+                    baseline | stretch;
+    }
+                        </pre>
+                    </article>
+                </li>
+            </ul>
+        </li>
+    </ol>
+    </div>
+
+    <div class="box"><h3><strong>Ejemplo:</strong></h3></div>
+
+
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">
+            2
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa, quia ad.
+            
+        </div>
+        <div class="item">3</div>
+        <div class="item self">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+    </div>
+
+    <div class="box container-column">
+        <h3><strong>Referencias:</strong></h3>
+        <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">Developer Mozilla - CSS Flexible Box Layout</a>
+        <a href="https://mdn.mozillademos.org/files/15614/Basics1.png">Imagenes Ejes Ejemplos aqui</a> 
+        <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS Tricks - A Complete Guide to Flexbox</a>
+    </div>
+</main>
+</body>
+</html>

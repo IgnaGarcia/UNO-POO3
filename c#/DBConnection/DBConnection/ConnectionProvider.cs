@@ -7,23 +7,7 @@ public class ConnectionProvider
 	static NpgsqlConnection sqlConnection = null;
 	protected NpgsqlDataReader reader;
 
-	public ConnectionProvider()
-	{
-        if (sqlConnection == null)
-        {
-            try
-            {
-                sqlConnection = new NpgsqlConnection(ConnectionConfig.getConnectionString());
-                if (sqlConnection.State != ConnectionState.Open)
-                {
-                    sqlConnection.Open();
-                }
-            } catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-	}
+	public ConnectionProvider() { }
 
     public void ejecute(string query)
     {
@@ -33,6 +17,22 @@ public class ConnectionProvider
         {
             command.ExecuteNonQuery();
         } catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+
+    public connect()
+    {
+        try
+        {
+            sqlConnection = new NpgsqlConnection(ConnectionConfig.getConnectionString());
+            if (sqlConnection.State != ConnectionState.Open)
+            {
+                sqlConnection.Open();
+            }
+        }
+        catch (Exception ex)
         {
             throw new Exception(ex.Message);
         }

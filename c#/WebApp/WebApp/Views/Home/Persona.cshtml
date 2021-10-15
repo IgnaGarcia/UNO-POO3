@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Persona";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Pagina de personas.</p>
+
+<div>
+    @ViewBag.persona.toString()
+</div>
+
+<ul>
+    @foreach (var p in @ViewBag.personas)
+    {
+        <li> @p.toString() </li>
+    }
+</ul>

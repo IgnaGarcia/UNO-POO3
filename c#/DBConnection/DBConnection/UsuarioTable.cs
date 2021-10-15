@@ -6,7 +6,7 @@ class UsuarioTable : ConnectionProvider, UsuarioInterface
     public Usuario usuario;
     NpgsqlCommand command;
 
-    public UsuarioTable(): base(){ }
+    public UsuarioTable() { }
 
     public bool getPrimero(string sp)
     {

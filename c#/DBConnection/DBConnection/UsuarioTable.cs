@@ -1,16 +1,16 @@
+using Npgsql;
 using System.Data;
-using System.Data.SqlClient;
 
 class UsuarioTable : ConnectionProvider, UsuarioInterface
 {
     public Usuario usuario;
-    SqlCommand command;
+    NpgsqlCommand command;
 
     public UsuarioTable(): base(){ }
 
     public bool getPrimero(string sp)
     {
-        command = new SqlCommand(sp, getSqlConnection());
+        command = new NpgsqlCommand(sp, getSqlConnection());
         reader = command.ExecuteReader();
         return getSiguiente();
     }
@@ -31,7 +31,7 @@ class UsuarioTable : ConnectionProvider, UsuarioInterface
     {
         return new Usuario(
             Int32.Parse(result["id"].ToString()),
-            result["name"].ToString(),
+            result["nombre"].ToString(),
             result["password"].ToString()
         );
     }

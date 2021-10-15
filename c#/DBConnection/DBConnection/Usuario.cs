@@ -13,6 +13,6 @@ class Usuario
 
     public string toString()
     {
-        return string.Format(id.ToString(), name, password);
+        return id.ToString() +" "+ name +" "+ password;
     }
 }

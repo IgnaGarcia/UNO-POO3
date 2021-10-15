@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-class ConnectionConfig
+﻿class ConnectionConfig
 {
     private string dbserv;
 
@@ -12,8 +6,15 @@ class ConnectionConfig
 
     private ConnectionConfig()
     {
-        
-        dbserv = "D:\\OldProyects\\poo3\\c#\\DBConnection\\users.db";
+        string server = "localhost";
+        string user = "postgres";
+        string password = "admin";
+        string database = "user";
+        dbserv = "Server = "+ server
+            +"; User Id = "+ user
+            +"; Password = "+ password
+            +"; Database = "+ database
+            +";";
     }
 
     private static void createInstance()
@@ -30,7 +31,7 @@ class ConnectionConfig
     public static string getConnectionString()
     {
         createInstance();
-        return "Data Source="+ instance.dbserv;
+        return instance.dbserv;
     }
 
 }

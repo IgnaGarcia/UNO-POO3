@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
+using Npgsql;
 
 public class ConnectionProvider
 {
-	static SqlConnection sqlConnection = null;
-	protected SqlDataReader reader;
+	static NpgsqlConnection sqlConnection = null;
+	protected NpgsqlDataReader reader;
 
 	public ConnectionProvider()
 	{
@@ -13,12 +13,10 @@ public class ConnectionProvider
         {
             try
             {
-                sqlConnection = new SqlConnection(ConnectionConfig.getConnectionString());
+                sqlConnection = new NpgsqlConnection(ConnectionConfig.getConnectionString());
                 if (sqlConnection.State != ConnectionState.Open)
                 {
-                    Console.WriteLine("opening");
                     sqlConnection.Open();
-                    Console.WriteLine("opened");
                 }
             } catch (Exception ex)
             {
@@ -29,7 +27,7 @@ public class ConnectionProvider
 
     public void ejecute(string query)
     {
-        SqlCommand command = new SqlCommand(query, sqlConnection);
+        NpgsqlCommand command = new NpgsqlCommand(query, sqlConnection);
 
         try
         {
@@ -45,7 +43,7 @@ public class ConnectionProvider
         sqlConnection.Close();
     }
 
-    public SqlConnection getSqlConnection()
+    public NpgsqlConnection getSqlConnection()
     {
         return sqlConnection;
     }

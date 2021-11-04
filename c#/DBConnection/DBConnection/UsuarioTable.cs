@@ -46,4 +46,9 @@ class UsuarioTable : ConnectionProvider, UsuarioInterface
     {
         return usuario;
     }
+
+    public List<Usuario> findAll(){
+        
+        command = new NpgsqlCommand("SELECT * FROM \"user\"", getSqlConnection());
+    }
 }
